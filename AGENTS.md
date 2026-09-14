@@ -9,7 +9,7 @@ Before customizing a student's project, ask the student to confirm both facts:
 1. The unchanged starter opens at their actual GitHub Pages URL.
 2. They successfully submitted that URL in **Builds** at https://calpolyvibecoding.com/portal.
 
-Do not infer portal success from a live URL. Do not query private member records or ask for credentials. If either prerequisite is incomplete, help the student follow README Steps 1–2 and stop personal implementation. Read-only setup assistance is allowed.
+Do not infer portal success from a live URL. Do not query private member records or ask for credentials. If either prerequisite is incomplete, help the student follow README Steps 1-2 and stop personal implementation. Read-only setup assistance is allowed.
 
 This student gate does not block an explicitly authorized maintainer task preparing the template or instructor example. Never invent such authorization.
 
@@ -19,7 +19,7 @@ After STOP 1, help the student propose and approve the six TARGET lines and one 
 
 ## My standing rule
 
-[One observable, student-approved rule that protects this project's purpose or experience.]
+Do not invent restaurant data. Every recommendation must be a real restaurant, and every review, menu, deal, price, or descriptive claim must either have a visible source link or be omitted.
 
 ## Workflow
 

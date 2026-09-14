@@ -9,7 +9,7 @@ Before customizing a student's project, ask the student to confirm both facts:
 1. The unchanged starter opens at their actual GitHub Pages URL.
 2. They successfully submitted that URL in **Builds** at https://calpolyvibecoding.com/portal.
 
-Do not infer portal success from a live URL. Do not query private member records or ask for credentials. If either prerequisite is incomplete, help the student follow README Steps 1-2 and stop personal implementation. Read-only setup assistance is allowed.
+Do not infer portal success from a live URL. Do not query private member records or ask for credentials. If either prerequisite is incomplete, help the student follow README Steps 1–2 and stop personal implementation. Read-only setup assistance is allowed.
 
 This student gate does not block an explicitly authorized maintainer task preparing the template or instructor example. Never invent such authorization.
 

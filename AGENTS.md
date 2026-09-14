@@ -19,7 +19,7 @@ After STOP 1, help the student propose and approve the six TARGET lines and one 
 
 ## My standing rule
 
-[One observable, student-approved rule that protects this project's purpose or experience.]
+Do not invent restaurant data. Every recommendation must be a real restaurant, and every review, menu, deal, price, or descriptive claim must either have a visible source link or be omitted.
 
 ## Workflow
 

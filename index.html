@@ -53,7 +53,6 @@ button{cursor:pointer}
 }
 .topbar .wrap{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:14px 0}
 .brand{font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--green)}
-.rule-pill{font-size:.82rem;color:var(--brown);border:1px solid var(--line);padding:7px 10px;background:var(--paper)}
 main{padding:34px 0 48px}
 .intro{
   display:grid;
@@ -105,13 +104,6 @@ h1{
 .book:nth-child(4){min-height:150px;background:var(--green-2)}
 .book:nth-child(5){min-height:120px;background:var(--plum)}
 .book:nth-child(6){min-height:104px;background:#8d6a42}
-.shelf-note{
-  border-top:4px solid var(--green);
-  padding-top:13px;
-  color:var(--brown);
-  font-family:Georgia,serif;
-  font-size:1.05rem;
-}
 .tool{
   margin-top:28px;
   display:grid;
@@ -233,13 +225,6 @@ label.option:focus-within{outline:3px solid rgba(185,137,57,.4);outline-offset:2
   padding:20px;
   box-shadow:var(--shadow);
 }
-.source-note{
-  margin-top:18px;
-  border-top:1px solid rgba(99,68,46,.24);
-  padding-top:14px;
-  color:#52604d;
-  font-size:.92rem;
-}
 @media(max-width:850px){
   .intro,.tool{grid-template-columns:1fr}
   .shelf{min-height:190px}
@@ -268,14 +253,13 @@ label.option:focus-within{outline:3px solid rgba(185,137,57,.4);outline-offset:2
 <div class="topbar">
   <div class="wrap">
     <div class="brand">Best Food in SLO</div>
-    <div class="rule-pill">No made-up restaurant data. Every card includes visible source links.</div>
   </div>
 </div>
 <main class="wrap">
   <section class="intro" aria-labelledby="page-title">
     <div>
       <h1 id="page-title">Find a table that fits the mood.</h1>
-      <p class="lead">Answer a few quick questions and get real San Luis Obispo restaurant ideas. The picker keeps the facts modest: no invented ratings, no fake reviews, and no unsourced deals.</p>
+      <p class="lead">Answer a few quick questions and find a San Luis Obispo restaurant that suits your mood.</p>
     </div>
     <div class="shelf" aria-label="Bookstore inspired visual">
       <div class="food-scene" aria-hidden="true">
@@ -286,7 +270,6 @@ label.option:focus-within{outline:3px solid rgba(185,137,57,.4);outline-offset:2
         <span class="book"></span><span class="book"></span><span class="book"></span>
         <span class="book"></span><span class="book"></span><span class="book"></span>
       </div>
-      <div class="shelf-note">Warm greens, cream paper, and staff-pick style cards for a cozy browsing feel.</div>
     </div>
   </section>
   <section class="tool" aria-label="Restaurant picker">
@@ -338,7 +321,6 @@ label.option:focus-within{outline:3px solid rgba(185,137,57,.4);outline-offset:2
         <div class="count" id="count" aria-live="polite">0 matches</div>
       </div>
       <div class="grid" id="results"></div>
-      <p class="source-note">Budget, menu, review, atmosphere, and deal cues are intentionally source-linked. If a claim was not clear from a public source, this page leaves it out instead of filling the gap.</p>
     </div>
   </section>
 </main>
@@ -579,7 +561,7 @@ label.option:focus-within{outline:3px solid rgba(185,137,57,.4);outline-offset:2
     if(!list.length){
       var empty=makeEl("div","empty");
       var h=makeEl("h3","","No exact match yet");
-      var p=makeEl("p","","Try loosening the price range or turning off the deals filter. The picker will not add a restaurant unless its facts have visible source links.");
+      var p=makeEl("p","","Try loosening the price range or turning off the deals filter.");
       empty.appendChild(h);
       empty.appendChild(p);
       results.appendChild(empty);
@@ -589,7 +571,7 @@ label.option:focus-within{outline:3px solid rgba(185,137,57,.4);outline-offset:2
     }
     list.forEach(function(item){results.appendChild(card(item,filters));});
     count.textContent=list.length+(list.length===1?" match":" matches");
-    summary.textContent="Showing real restaurants with visible source links for the details on each card.";
+    summary.textContent="A few picks to start with.";
   }
   form.addEventListener("change",render);
   form.addEventListener("reset",function(){setTimeout(render,0);});

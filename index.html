@@ -15,6 +15,11 @@
   --brown:#63442e;
   --gold:#b98939;
   --plum:#73485f;
+  --coral:#d65f45;
+  --sun:#f2c94c;
+  --sky:#b9dfdc;
+  --mint:#cfe3c4;
+  --berry:#b95076;
   --line:#cbb78e;
   --shadow:0 18px 44px rgba(42,31,18,.14);
 }
@@ -67,14 +72,28 @@ h1{
 .lead{max-width:640px;margin:0;color:#3f4739;font-size:1.08rem}
 .shelf{
   min-height:260px;
-  border:1px solid var(--line);
-  background:var(--paper);
+  border:2px solid var(--green);
+  background:#fff4d9;
   box-shadow:var(--shadow);
   padding:22px;
   display:grid;
   align-content:end;
   gap:12px;
 }
+.food-scene{display:flex;justify-content:space-between;gap:10px;align-items:end;margin-bottom:4px}
+.doodle{position:relative;flex:1;min-height:58px;border:2px solid var(--green);overflow:hidden}
+.doodle.pizza{background:var(--coral);clip-path:polygon(50% 0,100% 100%,0 100%)}
+.doodle.pizza:before,.doodle.pizza:after{content:"";position:absolute;border-radius:50%;background:var(--sun);width:11px;height:11px}
+.doodle.pizza:before{left:40%;top:42%}.doodle.pizza:after{left:62%;top:65%}
+.doodle.bowl{background:var(--sky);border-radius:50% 50% 45% 45%}
+.doodle.bowl:before{content:"";position:absolute;left:16%;right:16%;top:19%;height:21px;border:3px solid var(--green);border-radius:50%;background:var(--mint)}
+.doodle.bowl:after{content:"";position:absolute;width:22px;height:7px;background:var(--coral);left:34%;top:27%;border-radius:50%}
+.doodle.burger{background:var(--sun);border-radius:50% 50% 8px 8px}
+.doodle.burger:before{content:"";position:absolute;left:13%;right:13%;top:30%;height:13px;background:var(--coral);border-top:3px solid var(--green);border-bottom:3px solid var(--green)}
+.doodle.burger:after{content:"";position:absolute;left:11%;right:11%;bottom:16%;height:12px;background:var(--mint);border:2px solid var(--green);border-radius:0 0 16px 16px}
+.doodle.cup{background:var(--berry);border-radius:0 0 18px 18px}
+.doodle.cup:before{content:"";position:absolute;left:22%;right:22%;bottom:10%;height:30px;background:var(--paper);border:2px solid var(--green);border-radius:0 0 13px 13px}
+.doodle.cup:after{content:"";position:absolute;left:39%;top:7%;width:18px;height:21px;border-left:3px solid var(--cream);border-radius:50%;transform:rotate(-18deg)}
 .shelf-row{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end}
 .book{
   min-height:96px;
@@ -167,12 +186,19 @@ label.option:focus-within{outline:3px solid rgba(185,137,57,.4);outline-offset:2
   border:1px solid var(--line);
   background:var(--paper);
   box-shadow:0 12px 26px rgba(42,31,18,.09);
-  padding:18px;
+  padding:0 18px 18px;
   display:grid;
   gap:12px;
 }
-.card header{display:flex;justify-content:space-between;gap:12px;align-items:start}
+.card header{display:flex;justify-content:space-between;gap:12px;align-items:center;padding-top:16px}
 .card h3{font-family:Georgia,serif;font-size:1.55rem;color:var(--green);margin:0}
+.card-title{display:flex;align-items:center;gap:10px}
+.card-art{width:45px;height:45px;flex:0 0 45px;position:relative;border:2px solid var(--green);background:var(--sun);overflow:hidden}
+.card-art:before,.card-art:after{content:"";position:absolute}
+.food-bbq{background:var(--coral);border-radius:50% 50% 12px 12px}.food-bbq:before{left:8px;right:8px;top:16px;height:10px;background:var(--mint);border-top:2px solid var(--green);border-bottom:2px solid var(--green)}.food-bbq:after{width:18px;height:8px;left:11px;top:8px;border-top:3px solid var(--paper);border-radius:50%}
+.food-sandwich{background:var(--sun);border-radius:10px}.food-sandwich:before{left:5px;right:5px;top:11px;height:21px;background:var(--paper);border:2px solid var(--green);box-shadow:0 7px 0 var(--mint)}.food-sandwich:after{left:7px;right:7px;top:21px;height:4px;background:var(--coral)}
+.food-bowl{background:var(--sky);border-radius:50%}.food-bowl:before{left:7px;right:7px;top:8px;height:19px;border:3px solid var(--green);background:var(--mint);border-radius:50%}.food-bowl:after{width:11px;height:5px;left:17px;top:14px;background:var(--coral);border-radius:50%}
+.food-italian{background:var(--coral);clip-path:polygon(50% 0,100% 100%,0 100%)}.food-italian:before{width:9px;height:9px;left:18px;top:20px;border-radius:50%;background:var(--sun);box-shadow:8px 11px 0 var(--sun),-7px 11px 0 var(--sun)}.food-italian:after{left:5px;right:5px;bottom:3px;border-bottom:3px solid var(--green)}
 .badge{
   white-space:nowrap;
   color:#fff;
@@ -232,6 +258,10 @@ label.option:focus-within{outline:3px solid rgba(185,137,57,.4);outline-offset:2
 @media(prefers-reduced-motion:no-preference){
   .card{transition:transform .18s ease,box-shadow .18s ease}
   .card:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(42,31,18,.14)}
+  .doodle{animation:bob 3.8s ease-in-out infinite}
+  .doodle:nth-child(2){animation-delay:-1s}.doodle:nth-child(3){animation-delay:-2s}.doodle:nth-child(4){animation-delay:-3s}
+  .card-art{transition:transform .2s ease}.card:hover .card-art{transform:rotate(-8deg) scale(1.08)}
+  @keyframes bob{50%{transform:translateY(-7px) rotate(2deg)}}
 }
 </style>
 <body>
@@ -248,6 +278,10 @@ label.option:focus-within{outline:3px solid rgba(185,137,57,.4);outline-offset:2
       <p class="lead">Answer a few quick questions and get real San Luis Obispo restaurant ideas. The picker keeps the facts modest: no invented ratings, no fake reviews, and no unsourced deals.</p>
     </div>
     <div class="shelf" aria-label="Bookstore inspired visual">
+      <div class="food-scene" aria-hidden="true">
+        <span class="doodle pizza"></span><span class="doodle bowl"></span>
+        <span class="doodle burger"></span><span class="doodle cup"></span>
+      </div>
       <div class="shelf-row" aria-hidden="true">
         <span class="book"></span><span class="book"></span><span class="book"></span>
         <span class="book"></span><span class="book"></span><span class="book"></span>
@@ -477,9 +511,14 @@ label.option:focus-within{outline:3px solid rgba(185,137,57,.4);outline-offset:2
   function card(item,filters){
     var article=makeEl("article","card");
     var head=document.createElement("header");
+    var titleWrap=makeEl("div","card-title");
+    var art=makeEl("span","card-art "+foodArtClass(item));
+    art.setAttribute("aria-hidden","true");
     var h=makeEl("h3","",item.name);
+    titleWrap.appendChild(art);
+    titleWrap.appendChild(h);
     var area=makeEl("span","badge",item.area);
-    head.appendChild(h);
+    head.appendChild(titleWrap);
     head.appendChild(area);
     article.appendChild(head);
 
@@ -509,6 +548,12 @@ label.option:focus-within{outline:3px solid rgba(185,137,57,.4);outline-offset:2
     });
     article.appendChild(linkWrap);
     return article;
+  }
+  function foodArtClass(item){
+    if(item.food.indexOf("sandwiches")>-1){return "food-sandwich";}
+    if(item.food.indexOf("italian")>-1){return "food-italian";}
+    if(item.food.indexOf("bbq")>-1||item.food.indexOf("burgers")>-1){return "food-bbq";}
+    return "food-bowl";
   }
   function explain(item,filters){
     var reasons=[];
